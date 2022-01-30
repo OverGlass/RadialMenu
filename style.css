@@ -1,0 +1,100 @@
+.radial-menu {
+  --main-diameter: 200px;
+  --sub-diameter: 200px;
+  --dot-diameter: 30px;
+}
+
+.radial-menu {
+  width: 100%;
+  height: 100vh;
+  background-color: #ff7675;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radial-menu ul {
+  position: absolute;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: var(--main-diameter);
+  height: var(--main-diameter);
+  /* for debugging */
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  padding: 45px;
+  /* for debugging */
+  /* background-color: orange; */
+}
+
+.radial-menu li {
+  position: absolute;
+  transform-origin: calc(var(--main-diameter) / 2)
+    calc(var(--main-diameter) / 2);
+  justify-content: center;
+  align-items: center;
+}
+
+.radial-menu .menu-item-container {
+  margin: 0 auto;
+  height: var(--dot-diameter);
+  width: var(--dot-diameter);
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  outline: 0;
+  position: relative;
+}
+
+.radial-menu li.active > .menu-item-container {
+  background-color: #fff;
+}
+
+.radial-menu li.active {
+  z-index: -1;
+}
+
+.radial-menu .menu-item-container:hover {
+  background-color: #fff;
+}
+
+.radial-menu .menu-item-container span {
+  position: absolute;
+  top: var(--dot-diameter);
+  left: calc(-100px / 3);
+  width: 100px;
+  user-select: none;
+}
+
+.radial-menu .sub-menu.open {
+  display: block;
+}
+
+.radial-menu .opacity {
+  opacity: 0.3;
+}
+
+.radial-menu .sub-menu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.radial-menu .sub-menu .radial-menu {
+  height: 100%;
+  background: transparent;
+  position: absolute;
+}
+
+.radial-menu .sub-menu .radial-menu ul {
+  width: var(--sub-diameter);
+  height: var(--sub-diameter);
+  z-index: -1;
+}
+
+.radial-menu .sub-menu .radial-menu li {
+  transform-origin: calc(var(--sub-diameter) / 2) calc(var(--sub-diameter) / 2);
+}
