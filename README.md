@@ -38,6 +38,7 @@ const optionsPositions = [
 ```
 
 ```css
+/* Variable CSS de configuration */
 .radial-menu {
   --main-diameter: 200px;
   --sub-diameter: 200px;
